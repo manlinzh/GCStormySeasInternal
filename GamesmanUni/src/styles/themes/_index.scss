@@ -1,0 +1,100 @@
+@use "blackboard";
+@use "cal";
+@use "classic";
+@use "dark";
+@use "greenboard";
+@use "light";
+@use "rose";
+@use "sepia";
+@use "space";
+@use "terminal";
+
+#app.uni-theme-blackboard {
+    --backgroundColor: #{blackboard.$backgroundColor};
+    --fixedWidthFontFamily: #{blackboard.$fixedWidthFontFamily};
+    --neutralColor: #{blackboard.$neutralColor};
+    --primaryColor: #{blackboard.$primaryColor};
+    --regularFontFamily: #{blackboard.$regularFontFamily};
+    --secondaryColor: #{blackboard.$secondaryColor};
+}
+
+#app.uni-theme-cal {
+    --backgroundColor: #{cal.$backgroundColor};
+    --fixedWidthFontFamily: #{cal.$fixedWidthFontFamily};
+    --neutralColor: #{cal.$neutralColor};
+    --primaryColor: #{cal.$primaryColor};
+    --regularFontFamily: #{cal.$regularFontFamily};
+    --secondaryColor: #{cal.$secondaryColor};
+}
+
+#app.uni-theme-classic {
+    --backgroundColor: #{classic.$backgroundColor};
+    --fixedWidthFontFamily: #{classic.$fixedWidthFontFamily};
+    --neutralColor: #{classic.$neutralColor};
+    --primaryColor: #{classic.$primaryColor};
+    --regularFontFamily: #{classic.$regularFontFamily};
+    --secondaryColor: #{classic.$secondaryColor};
+}
+
+#app.uni-theme-dark {
+    --backgroundColor: #{dark.$backgroundColor};
+    --fixedWidthFontFamily: #{dark.$fixedWidthFontFamily};
+    --neutralColor: #{dark.$neutralColor};
+    --primaryColor: #{dark.$primaryColor};
+    --regularFontFamily: #{dark.$regularFontFamily};
+    --secondaryColor: #{dark.$secondaryColor};
+}
+
+#app.uni-theme-greenboard {
+    --backgroundColor: #{greenboard.$backgroundColor};
+    --fixedWidthFontFamily: #{greenboard.$fixedWidthFontFamily};
+    --neutralColor: #{greenboard.$neutralColor};
+    --primaryColor: #{greenboard.$primaryColor};
+    --regularFontFamily: #{greenboard.$regularFontFamily};
+    --secondaryColor: #{greenboard.$secondaryColor};
+}
+
+#app.uni-theme-light {
+    --backgroundColor: #{light.$backgroundColor};
+    --fixedWidthFontFamily: #{light.$fixedWidthFontFamily};
+    --neutralColor: #{light.$neutralColor};
+    --primaryColor: #{light.$primaryColor};
+    --regularFontFamily: #{light.$regularFontFamily};
+    --secondaryColor: #{light.$secondaryColor};
+}
+
+#app.uni-theme-rose {
+    --backgroundColor: #{rose.$backgroundColor};
+    --fixedWidthFontFamily: #{rose.$fixedWidthFontFamily};
+    --neutralColor: #{rose.$neutralColor};
+    --primaryColor: #{rose.$primaryColor};
+    --regularFontFamily: #{rose.$regularFontFamily};
+    --secondaryColor: #{rose.$secondaryColor};
+}
+
+#app.uni-theme-sepia {
+    --backgroundColor: #{sepia.$backgroundColor};
+    --fixedWidthFontFamily: #{sepia.$fixedWidthFontFamily};
+    --neutralColor: #{sepia.$neutralColor};
+    --primaryColor: #{sepia.$primaryColor};
+    --regularFontFamily: #{sepia.$regularFontFamily};
+    --secondaryColor: #{sepia.$secondaryColor};
+}
+
+#app.uni-theme-terminal {
+    --backgroundColor: #{terminal.$backgroundColor};
+    --fixedWidthFontFamily: #{terminal.$fixedWidthFontFamily};
+    --neutralColor: #{terminal.$neutralColor};
+    --primaryColor: #{terminal.$primaryColor};
+    --regularFontFamily: #{terminal.$regularFontFamily};
+    --secondaryColor: #{terminal.$secondaryColor};
+}
+
+#app.uni-theme-space {
+    --backgroundColor: #{space.$backgroundColor};
+    --fixedWidthFontFamily: #{space.$fixedWidthFontFamily};
+    --neutralColor: #{space.$neutralColor};
+    --primaryColor: #{space.$primaryColor};
+    --regularFontFamily: #{space.$regularFontFamily};
+    --secondaryColor: #{space.$secondaryColor};
+}

@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?> <svg version="1.1" id="BackgroundSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30"> <defs><path id="a" d="M10,0h10v10h-10zm-10,10h10v10h-10zm10,10h10v10h-10" fill="#C97D41"/></defs> <path d="M0,0h40v30h-40z" fill="#FEC595"/><use href="#a" x="0" y="0"/><use href="#a" x="20" y="0"/></svg>

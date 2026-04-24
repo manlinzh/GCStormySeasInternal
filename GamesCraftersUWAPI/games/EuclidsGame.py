@@ -1,0 +1,121 @@
+"""
+    Author: Arihant Choudhary, Cameron Cheung
+"""
+
+from .models import AbstractVariant
+from math import gcd
+
+class EuclidsGame(AbstractVariant):
+
+    p2Result = [('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 1), ('win', 3), ('win', 1), ('win', 53), ('win', 1), ('win', 5), ('win', 1), ('win', 3), ('win', 1), ('win', 59), ('win', 1), ('win', 61), ('win', 1), ('win', 3), ('win', 1), ('win', 5), ('win', 1), ('win', 67), ('win', 1), ('win', 3), ('win', 1), ('win', 71), ('win', 1), ('win', 73), ('win', 1), ('win', 3), ('win', 1), ('win', 7), ('win', 1), ('win', 79), ('win', 1), ('win', 9), ('win', 1), ('win', 83), ('win', 1), ('win', 17), ('win', 1), ('win', 29), ('win', 1), ('win', 89), ('win', 1), ('win', 13), ('win', 1), ('win', 31), ('win', 1), ('win', 19), ('win', 1), ('win', 97), ('win', 1), ('win', 99), ('win', 1)]
+
+    def __init__(self):
+        super(EuclidsGame, self).__init__('Regular', 'v2')
+
+    def start_position(self):
+        """
+            Return a UWAPI position string corresponding 
+            to the initial position.
+        """
+        position_str = '1_' + '-' * 106
+        return {
+            'position': position_str,
+            'autoguiPosition': position_str
+        }
+
+    def stat(self, position):
+        """
+            Get the value and remoteness of the input position.
+        """
+        selected, _, first_number, second_number = self.parse_position_string(position)
+        if (first_number == 0):
+            response = {
+                "position": position,
+                "autoguiPosition": position,
+                "positionValue": "lose",
+                "remoteness": 100,
+            }
+        elif (second_number == 0):
+            v, r = EuclidsGame.p2Result[first_number - 1]
+            response = {
+                "position": position,
+                "autoguiPosition": position,
+                "positionValue": v,
+                "remoteness": r,
+            }
+        else:
+            total_moves = max(first_number, second_number)//gcd(first_number, second_number)
+            moves_so_far = selected.count("X")
+            
+            #total number of selections made is the gcd(m,n). M and N are the first two numbers selected.
+            remoteness = total_moves - moves_so_far
+            position_value = "win" if remoteness % 2 else "lose"
+            response = {
+                "position": position,
+                "autoguiPosition": position,
+                "positionValue": position_value,
+                "remoteness": remoteness,
+            }
+        return response
+    
+    def parse_position_string(self, position):
+        """
+            Returns: 
+                - Selected Numbers
+                - Whose Turn
+                - Second Number Selected (0 if not selected yet)
+                - First Number Selected (0 if not selected yet)
+        """
+
+        first_number = int(position[-3:].replace('-', '0'))
+        second_number = int(position[-6:-3].replace('-', '0'))
+        return position[2:102], position[0], first_number, second_number
+
+    def position_data(self, position):
+        """
+            Assemble `moves`, a dictionary mapping each legal move 
+            from the input position to the child position
+            it leads to. 
+        """
+        response = self.stat(position)
+        selected, turn, first_number, second_number = self.parse_position_string(position)
+        next_turn = '2' if turn == '1' else '1'
+        moves = {}
+        json_moves = []
+        available = []
+
+        if first_number == 0:
+            available = list(range(1, 101))
+        elif second_number == 0:
+            available = [i for i in range(1, 101) if i != first_number]
+        else:
+            selected_numbers = [i + 1 for i in range(100) if selected[i] == 'X']
+            differences = [
+                abs(selected_numbers[i] - selected_numbers[j])
+                for i in range(len(selected_numbers))
+                for j in range(i + 1, len(selected_numbers))
+                if i != j]
+            available = [x for x in differences if x not in selected_numbers]
+
+        for difference in available:
+            trailing = position[-6:]
+            if (first_number == 0):
+                trailing = '---' + (str(difference).zfill(3))
+            elif (second_number == 0):
+                trailing = (str(difference).zfill(3)) + position[-3:]
+            moves[difference] = "{}_{}{}".format(
+                next_turn, 
+                selected[:difference-1] + 'X' + selected[difference:],
+                trailing
+            )
+
+        for move, position in moves.items():
+            next_res = {
+                "autoguiMove": f'A_h_{move - 1}_x',
+                "move": str(move),
+                **self.stat(position)
+            }
+            json_moves.append(next_res)
+        
+        response['moves'] = json_moves
+        return response

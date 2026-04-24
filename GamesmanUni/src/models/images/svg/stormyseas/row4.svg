@@ -1,0 +1,37 @@
+
+<svg viewBox="0 0 180 20" xmlns="http://www.w3.org/2000/svg">
+  <!-- Board shapes -->
+    <!-- board yellow background -->
+    <rect x="0" y="0" width="180" height="20" fill="#0bc1b2" />
+
+      <path d="M62,10 L64,6 L66,14 L68,5 L70,13 L72,7 L74,12 L76,8 L78,11" 
+        stroke="#089c8f" 
+        stroke-width="2" 
+        fill="none" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+
+      <path d="M82,10 L84,6 L86,14 L88,5 L90,13 L92,7 L94,12 L96,8 L98,11" 
+        stroke="#089c8f" 
+        stroke-width="2" 
+        fill="none" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+
+      <path d="M122,10 L124,6 L126,14 L128,5 L130,13 L132,7 L134,12 L136,8 L138,11" 
+        stroke="#089c8f" 
+        stroke-width="2" 
+        fill="none" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+
+      <path d="M142,10 L144,6 L146,14 L148,5 L150,13 L152,7 L154,12 L156,8 L158,11" 
+        stroke="#089c8f" 
+        stroke-width="2" 
+        fill="none" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+
+
+    
+</svg>

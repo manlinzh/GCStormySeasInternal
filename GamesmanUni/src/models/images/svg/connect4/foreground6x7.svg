@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="ForegroundSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
+    <defs>
+        <path id="z" d="M0,0h70v10.1h-70zM1,5a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0M11,5 a 4,4 0 1,0 8,0 a 4,4 0 1,0 -8,0M21,5 a 4,4 0 1,0 8,0 a 4,4 0 1,0 -8,0M31,5 a 4,4 0 1,0 8,0 a 4,4 0 1,0 -8,0M41,5 a 4,4 0 1,0 8,0 a 4,4 0 1,0 -8,0M51,5 a 4,4 0 1,0 8,0 a 4,4 0 1,0 -8,0M61,5 a 4,4 0 1,0 8,0 a 4,4 0 1,0 -8,0" fill="gray" fill-rule="evenodd"/>
+    </defs>
+    <use href="#z" x="0" y="10"/>
+    <use href="#z" x="0" y="20"/>
+    <use href="#z" x="0" y="30"/>
+    <use href="#z" x="0" y="40"/>
+    <use href="#z" x="0" y="50"/>
+    <use href="#z" x="0" y="60"/>
+</svg>
