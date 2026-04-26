@@ -253,6 +253,8 @@ class StormySeas(Game):
         """
         Returns a string representation of the position based on the given mode.
         """
+        if mode == StringMode.AUTOGUI:
+            return "1_AAAA"
         string_rep = self.translate(self.unhash(position))
         waveString = string_rep[:self.row_length * self.num_rows]
         boatString = string_rep[self.row_length * self.num_rows:]

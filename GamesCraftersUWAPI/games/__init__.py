@@ -12,7 +12,6 @@ from .chinesechess import RegularChineseChessVariant
 from .Jenga import Jenga
 from .EuclidsGame import EuclidsGame
 from .Ghost import Ghost
-from .stormyseas import StormySeas
 
 """
     All one-player (puzzle) games and two-player games should be

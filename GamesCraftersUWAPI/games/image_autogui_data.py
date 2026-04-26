@@ -44,7 +44,6 @@ get_<game>(variant_id) should return JSON of the following form:
 """
 
 def get_stormyseas(variant_id):
-    
     return {
         "defaultTheme": "regular",
         "themes": {
@@ -54,10 +53,10 @@ def get_stormyseas(variant_id):
                 "background": "stormyseas/water.svg",
                 "foreground": "stormyseas/yellowboard.svg",
                 "charImages": {
-                    "row1": {"image":"stormyseas/row1.svg", "scale": "1"},
-                    "row2": {"image":"stormyseas/row2.svg", "scale": "1"},
-                    "row3": {"image":"stormyseas/row3.svg", "scale": "1"},
-                    "row4": {"image":"stormyseas/row4.svg", "scale": "1"},
+                    "A": {"image":"stormyseas/row1.svg", "scale": "1"},
+                    "B": {"image":"stormyseas/row2.svg", "scale": "1"},
+                    "F": {"image":"stormyseas/row3.svg", "scale": "1"},
+                    "X": {"image":"stormyseas/row4.svg", "scale": "1"},
                     "row5": {"image":"stormyseas/row5.svg", "scale": "1"},
                     "blueboat": {"image":"stormyseas/blueboat.svg", "scale": "1"},
                     "redboat": {"image":"stormyseas/redboat.svg", "scale": "1"},
@@ -2918,10 +2917,11 @@ image_autogui_data_funcs = {
     "shifttactoe": get_shifttactoe,
     "slide5": get_slide5,
     "snake": get_snake,
-    "spinout": get_spinout,
     "solitairechess": get_solitaire_chess,
+    "spinout": get_spinout,
     "squaredance": get_squaredance,
     "squirrels": get_squirrels_go_nuts,
+    "stormyseas": get_stormyseas,
     "tactix": get_tactix,
     "tantfant": get_tantfant,
     "tantrix": get_tantrix,
