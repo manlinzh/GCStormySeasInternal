@@ -29,7 +29,7 @@ class StormySeas(Game):
 
             # use ternary digits to represent shifts?
             curr_shift_string = "11211"
-            boat_pos = ["24", "12"] # first two digits is position in x-y where 0, 0 is top left square on board (always facing DOWN and always length 2)
+            boat_pos = ["24", "12"] # first two digits is position in row-col where 0, 0 is top left square on board (always facing DOWN and always length 2)
             self.boat_pos = boat_pos
             
             self.row_length = len(self.board_rows[0])
@@ -253,11 +253,30 @@ class StormySeas(Game):
         """
         Returns a string representation of the position based on the given mode.
         """
-        if mode == StringMode.AUTOGUI:
-            return "1_AAAA"
         string_rep = self.translate(self.unhash(position))
         waveString = string_rep[:self.row_length * self.num_rows]
         boatString = string_rep[self.row_length * self.num_rows:]
+
+        # pretend that the center of each tile is a wave or not
+        if mode == StringMode.AUTOGUI:
+            #translate the waves
+            waves = ['W' if char == '0' else '-' for char in waveString]
+            #translate the boats; need to be coordinates in fashion of coords
+            boat = []
+            red_row = int(boatString[0]);
+            red_col = int(boatString[1]);
+            blue_row = int(boatString[2]);
+            blue_col = int(boatString[3]);
+            for i in range(0, 7):
+                for j in range(0, 5):
+                    if j == red_row and i == red_col:
+                        boat += ['R']
+                    elif j == blue_row and i == blue_col:
+                        boat += ['B']
+                    else:
+                        boat += ['-']
+
+            return "1_".join(waves).join(boat)
 
         # Build base grid from wave data
         string_view = list(''.join(['~' if x == '1' else '.' for x in waveString]))
